@@ -1,0 +1,276 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Welcome to ASSESSA {% endblock %}
+
+{% block content %}
+
+    <div class="section_block_container">
+        <div class="section_block_container_sidebar_filter_information">
+            <div class="sidebar_panel_navigation sidebar_style_display">
+                <div class="panel_navigation_title_information title_style_display">
+                    <h1>Panel Navigation</h1>
+                </div>
+                <div class="panel_navigation_main_information main_inf_style_display">
+                    <h1>Genres</h1><br>
+                    {% for grs in genres %}
+                        <p>{{ grs }}</p><br>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="sidebar_movies sidebar_style_display ">
+                <div class="top_movies_title_information title_style_display">
+                    <h1>TOP Movies</h1>
+                </div>
+                <div class="top_movies_main_information main_inf_style_display">
+                    {% if top_movies %}
+                        {% for top_movie in top_movies %}
+                            <p><a href="{% url 'detail' top_movie.id %}">{{ top_movie.name }} </a></p><br>
+                        {% endfor %}
+                    {% else %}
+                        <p>Oops, you don't have a movie!</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="sidebar_cartoons sidebar_style_display">
+                <div class="top_cartoons_title_information title_style_display">
+                    <h1>TOP Cartoons</h1>
+                </div>
+                <div class="top_cartoons_main_information main_inf_style_display">
+                    {% if top_cartoons %}
+                        {% for top_cartoon in top_cartoons %}
+                            <p><a href="{% url 'detail' top_cartoon.id %}">{{ top_cartoon.name }} </a></p><br>
+                        {% endfor %}
+                    {% else %}
+                        <p>Oops, you don't have a cartoon!</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="sidebar_serials sidebar_style_display">
+                <div class="top_serials_title_information title_style_display">
+                    <h1>TOP Serials</h1>
+                </div>
+                <div class="top_serials_main_information main_inf_style_display">
+                    {% if top_serials %}
+                        {% for top_serial in top_serials %}
+                            <p><a href="{% url 'detail' top_serial.id %}">{{ top_serial.name }} </a></p><br>
+                        {% endfor %}
+                    {% else %}
+                        <p>Oops, you don't have a serial!</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="sidebar_comments sidebar_style_display">
+                <div class="top_comments_title_information title_style_display">
+                    <h1>Last 5 comments</h1>
+                </div>
+                <div class="top_comments_main_information main_inf_style_display">
+                    {% if last_comments %}
+                        {% for last_comment in last_comments %}
+                            <div class="sidebar_display_comment_block">
+                                <h1>{{ last_comment.name }}</h1>
+                                <hr>
+                                {% if user.first_name == "" %}
+                                    <h2> Unknown </h2>
+                                {% elif user.is_authenticated %}
+                                    <h2>First name: {{ last_comment.author.first_name }}</h2>
+                                {% else %}
+                                    <h2>{{ last_comment.author }} - Username </h2>
+                                {% endif %}
+                                <hr>
+                                <h1>{{ last_comment.title }}</h1>
+                                <hr>
+                                <p>{{ last_comment.create_date }}</p>
+                                <hr>
+                                <h6>{{ last_comment.text }}</h6>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>Oops, you don't have a comment!</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section_block_container_panel_main_cinema">
+            <div class="sort_block_main_cinema">
+                <h1>SORT BY</h1>
+                <form method="get">
+                    <label>
+
+                        <select name="genres" >
+                            <option value="">Genre</option>
+                            {% for grs in genres %}
+                                <option value="{{ grs }}">{{ grs }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <select name="category" >
+                            <option value="">Category</option>
+                            {% for ctg in category %}
+                                <option value="{{ ctg }}">{{ ctg }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <select name="release_date">
+                            <option value="">Year</option>
+                            <option value="1991">1991</option>
+                            <option value="1992">1992</option>
+                            <option value="1993">1993</option>
+                            <option value="1994">1994</option>
+                            <option value="1995">1995</option>
+                            <option value="1996">1996</option>
+                            <option value="1997">1997</option>
+                            <option value="1998">1998</option>
+                            <option value="1999">1999</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                        </select>
+
+                        <select name="actors" >
+                            <option value="">Actor</option>
+                            {% for actrs in actors %}
+                                <option value="{{ actrs }}">{{ actrs }}</option>
+                            {% endfor %}
+                        </select>
+
+                    </label><br>
+                    <br><button type="submit" class="btn btn-primary">Filter</button>
+                </form>
+
+                <div class="md-form mt-0 search_system_sort_block" >
+                    <form method="post" action="{% url 'home' %}">
+                        {% csrf_token %}
+                        <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="searched" autocomplete="off">
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="section_block_container_cinema_system_block">
+                {% if cinemas %}
+                    {% for cinema in cinemas %}
+                        <div class="cinema_block_main_information">
+                            <div class="cinema_block_main_title">
+                                <div class="title_cinema">
+                                    <i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stack" viewBox="0 0 16 16">
+                                            <path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z"/>
+                                            <path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z"/>
+                                        </svg>
+                                    </i>
+                                    <h1><a href="{% url 'detail' cinema.id %}">{{ cinema.name }} ({{ cinema.release_date }})</a></h1>
+                                </div>
+                                <div class="title_rating_cinema">
+                                    <div class="title_rating_kinopoisk">
+                                        <h1>KP: {{ cinema.rating }}</h1>
+                                    </div>
+                                    {% if cinema.fees_usa > 0 %}
+                                        <div class="title_rating_imdb">
+                                            <h1>IMDB: {{ cinema.rating_imdb }}</h1>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="cinema_block_main_information_system">
+                                <div class="main_information_image_block">
+                                    <a href="{% url 'detail' cinema.id %}"><img src={{ cinema.img.url }} alt={{ cinema.img.alt }}></a>
+                                </div>
+                                <div class="main_information_description_block">
+                                    <p>{{ cinema.description }}</p>
+                                    <h2>Country: {{ cinema.country }} </h2>
+                                    <h2>Year: {{ cinema.release_date }}</h2>
+                                    <h2>Genre: </h2>
+                                    {% for grs in cinema.genres.all %}
+                                        <h2 style="padding-left: 50px;"> • {{ grs }}</h2>
+                                    {% endfor %}
+                                    <h2>Producer: </h2>
+                                    {% for prds in cinema.directors.all %}
+                                        <h2 style="padding-left: 50px;"> • {{ prds }}</h2>
+                                    {% endfor %}
+                                    <h2>Time Duration: {{ cinema.time_duration }} min</h2>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                {% if searched %}
+                    {% for cinema in venues %}
+                        <p>{{ searched }}</p>
+                        <div class="cinema_block_main_information">
+                            <div class="cinema_block_main_title">
+                                <div class="title_cinema">
+                                    <i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stack" viewBox="0 0 16 16">
+                                            <path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z"/>
+                                            <path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z"/>
+                                        </svg>
+                                    </i>
+                                    <h1><a href="{% url 'detail' cinema.id %}">{{ cinema.name }} ({{ cinema.release_date }})</a></h1>
+                                </div>
+                                <div class="title_rating_cinema">
+                                    <div class="title_rating_kinopoisk">
+                                        <h1>KP: {{ cinema.rating }}</h1>
+                                    </div>
+                                    {% if cinema.fees_usa > 0 %}
+                                        <div class="title_rating_imdb">
+                                            <h1>IMDB: {{ cinema.rating_imdb }}</h1>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="cinema_block_main_information_system">
+                                <div class="main_information_image_block">
+                                    <a href="{% url 'detail' cinema.id %}"><img src={{ cinema.img.url }} alt={{ cinema.img.alt }}></a>
+                                </div>
+                                <div class="main_information_description_block">
+                                    <p>{{ cinema.description }}</p>
+                                    <h2>Country: {{ cinema.country }} </h2>
+                                    <h2>Year: {{ cinema.release_date }}</h2>
+                                    <h2>Genre: </h2>
+                                    {% for grs in cinema.genres.all %}
+                                        <h2 style="padding-left: 50px;"> • {{ grs }}</h2>
+                                    {% endfor %}
+                                    <h2>Producer: </h2>
+                                    {% for prds in cinema.directors.all %}
+                                        <h2 style="padding-left: 50px;"> • {{ prds }}</h2>
+                                    {% endfor %}
+                                    <h2>Time Duration: {{ cinema.time_duration }} min</h2>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

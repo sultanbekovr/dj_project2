@@ -1,0 +1,713 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    font-size: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
+/* Get Started CSS Styles */
+
+.header {
+    background-color: #2d2d2d;
+    padding: 0 50px;
+    width: 100%;
+    display: flex;
+    height: 70px;
+    align-items: center;
+}
+
+.header_container_logo_block {
+    width: 10%;
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    color: #FFF;
+}
+
+.header_container_logo_block h1 {
+    font-size: 26px;
+    color: #FFF;
+}
+
+.header_container_categories_block, a {
+    justify-content: space-around;
+    width: 70%;
+    color: #FFF;
+}
+
+.categories_block_list {
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    color: #FFF;
+}
+
+.header_container_account_block, a {
+    align-items: flex-end;
+    width: 20%;
+    color: #FFF;
+}
+
+.account_block_list {
+    display: flex;
+    justify-content: space-around;
+    color: #FFF;
+}
+
+.header_container_account_block a:hover, .header_container_categories_block a:hover {
+    cursor: pointer;
+    color: #ec2e65;
+}
+
+.list_item a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.register {
+    margin-left: 10px;
+}
+
+.list_item h2 {
+    font-size: 20px;
+}
+
+.categories_block_list li {
+    display: flex;
+    align-items: center;
+}
+
+.container_block_account_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container_block_account_form input {
+    padding: 5px;
+    border-radius: 5px;
+    width: 300px;
+    margin-top: 30px;
+}
+
+.container_block_account_form button {
+    margin-top: 30px;
+}
+
+.container_block_register_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container_block_register_form input {
+    width: 300px;
+    margin-top: 30px;
+    padding: 7px 2px 7px 10px;
+    border-radius: 5px;
+}
+
+.container_block_register_form button {
+    margin-top: 30px;
+}
+
+/* SECTION MODE */
+
+.container_block {
+    padding: 100px;
+}
+
+.container_block h1 {
+    font-size: 24px;
+}
+
+.main_container_block_news_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.container-block-view-system {
+    padding: 100px;
+}
+
+.container-block-view-system h1 {
+    font-size: 24px;
+    padding: 20px 0 20px 0;
+}
+
+.container-block-view-system p {
+    padding: 0 0 20px 0;
+}
+
+.container-block-view-system form {
+    width: 600px;
+}
+
+
+.section_container_block {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 100px 50px;
+}
+
+.section_media_block_system {
+    width: 400px;
+    padding: 0 50px;
+}
+
+.section_media_block_system img {
+    width: 300px;
+}
+
+.section_all_info_block_system {
+    padding: 0 50px;
+    height: 100%;
+}
+
+.section_all_info_block_system h1 {
+    font-size: 36px;
+}
+
+.section_all_info_block_system h2 {
+    font-size: 28px;
+}
+
+.all_info_category_age {
+    display: flex;
+    align-items: center;
+}
+
+.all_info_category_age h1 {
+    font-size: 16px;
+    color: #5c5c5c;
+}
+
+.all_info_category_age p {
+    margin-left: 10px;
+    border: 1px solid #5c5c5c;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 13px;
+    color: #5c5c5c;
+}
+
+.section_all_info_block_system h4 {
+    font-size: 16px;
+    color: #2c2c2c;
+    line-height: 25px;
+}
+
+.all_info_watch_cinema {
+    width: 200px;
+    background-color: orange;
+    padding: 12px 30px;
+    border-radius: 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.all_info_watch_cinema:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.all_info_watch_cinema h5 {
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.all_info_more_info {
+    display: flex;
+    align-items: center;
+}
+
+.all_info_more_info h3 {
+    width: 150px;
+    color: #5c5c5c;
+    font-size: 16px;
+}
+
+.all_info_more_info p {
+    width: 200px;
+    font-size: 16px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section_rating_info_block_system {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: 0 50px;
+}
+
+.section_rating_info_block_system p {
+    color: green;
+}
+
+.section_rating_info_block_system h1 {
+    font-size: 20px;
+}
+
+.rating_info_more_info {
+    width: 150px;
+    align-items: center;
+    display: flex;
+}
+
+.comments_block_main_info {
+    margin-top: 35px;
+    display: flex;
+}
+
+.comments_block_main_info p {
+    margin-left: 200px;
+    font-size: 15px;
+}
+
+label {
+    margin: 10px 0;
+}
+
+.rating_info_more_info p {
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+
+/* MyCinema STATIC */
+
+.main-content-oscar-cinema-block-container {
+    background-color: rgb(250, 173, 173);
+    display: flex;
+    width: 800px;
+    margin-left: 50px;
+    align-items: center;
+    border-radius: 10px
+}
+.main-content-oscar-cinema-block-container:hover {
+    background-color: #ddd;
+}
+.first-oscar-cinema-content {
+    background-color: rgb(250, 173, 173);
+}
+
+.oscar-cinema-main-information-block {
+    padding: 20px 0 20px 20px;
+    width: 70%;
+    display: flex;
+}
+.main-information-block-image img {
+    cursor: pointer;
+    border-radius: 5px;
+    width: 60px;
+    height: 96px;
+}
+.main-information-block-title {
+    font-family: "Graphik Kinopoisk LC Web",Arial,Tahoma,Verdana,sans-serif;
+    padding-left: 40px;
+}
+
+.main-information-block-title a {
+    color: #000;
+    transition: all 1s ease;
+}
+
+.main-information-block-title a:hover {
+    color: #ec2e65;
+    text-decoration: none;
+}
+
+.main-information-block-title h1 {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+.main-information-block-title h6 {
+    font-size: 14px;
+    padding: 7px 0;
+}
+.main-information-block-title p {
+    font-size: 14px;
+    color: #717171;
+}
+.main-information-block-title h3 {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    margin-top: 15px;
+    background-color: #F60;
+    display: inline-block;
+    padding: 6px 13px;
+    border-radius: 7px;
+}
+.main-information-block-title h3:hover {
+    background-color: #093;
+}
+
+.oscar-cinema-main-raiting-block {
+    align-items: center;
+    width: 50%;
+    display: flex;
+}
+.main-rating-block {
+    display: flex;
+}
+.main-rating-block h2 {
+    color: #093;
+    font-size: 18px;
+}
+.main-rating-block h6 {
+    width: 53px;
+    margin-left: 5px;
+    color: #717171;
+    font-size: 13px;
+}
+.main-rating-watched-system {
+    cursor: pointer;
+    margin: 0 50px;
+    align-items: center;
+    display: flex;
+    background-color: #FFF;
+    border: 1px solid #ddd;
+    padding: 7px 30px 7px 25px;
+    border-radius: 5px;
+}
+.main-rating-watched-system-different {
+    cursor: pointer;
+    margin: 0 50px;
+    align-items: center;
+    display: flex;
+    background-color: #FFF;
+    border: 1px solid #ddd;
+    padding: 9px 26px 9px 26px;
+    border-radius: 5px;
+}
+.main-rating-watched-system-different h3 {
+    font-size: 14px;
+    padding-left: 5px;
+}
+.main-rating-client-rating-block {
+    cursor: pointer;
+    background-color: #093;
+    border-radius: 5px;
+    padding: 10px 12px;
+    display: inline-block;
+}
+.main-rating-watched-system h3 {
+    padding-left: 5px;
+    font-size: 14px;
+}
+.main-rating-client-rating-block h4 {
+    color: #FFF;
+}
+.main-rating-column-view {
+    cursor: pointer;
+    margin-left: 15px;
+}
+.main-rating-client-rating-block-different {
+    cursor: pointer;
+}
+.main-rating-column-view:hover {
+    filter: invert(27%) sepia(76%) saturate(3046%) hue-rotate(134deg) brightness(98%) contrast(101%);
+}
+.main-information-block-image-different img {
+    width: 120px;
+    height: 150px;
+    border-radius: 5px;
+}
+
+.section_container_block_all_cinemas {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-rating-watched-system-different:hover svg, .main-rating-client-rating-block-different:hover svg {
+    fill: #009933;
+}
+
+/* MyCinema END */
+
+
+
+
+/* index.html */
+
+
+.section_block_container {
+    width: 100%;
+    padding: 50px 100px;
+    display: flex;
+}
+
+.section_block_container_sidebar_filter_information {
+    color: #FFF;
+    width: 27%;
+    background-color: #3c3c3c;
+    border-radius: 10px 0 0 10px;
+    padding: 20px;
+}
+
+.sidebar_style_display {
+    border-bottom: 1px solid #FFF;
+}
+
+.sidebar_panel_navigation {
+    border-top: 1px solid #FFF;
+}
+
+.title_style_display {
+    border-bottom: 1px solid #FFF;
+    padding: 10px 0;
+    font-size: 18px;
+    color: #ec2e65;
+}
+
+.main_inf_style_display {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main_inf_style_display p {
+    display: inline-block;
+}
+
+.main_inf_style_display h1 {
+    font-size: 18px;
+    color: #ec2e65;
+}
+
+.main_inf_style_display a, p {
+    padding: 10px 0 0 0;
+}
+
+.main_inf_style_display a:hover {
+    color: #ec2e65;
+}
+
+.main_inf_style_display p {
+    font-size: 15px;
+    padding: 10px 0 0 0;
+    display: inline-block;
+}
+
+.top_comments_main_information {
+    margin-top: -30px;
+}
+
+.sidebar_display_comment_block {
+    margin-top: 30px;
+    border: 2px solid #ec2e65;
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.sidebar_display_comment_block h6 {
+    font-size: 15px;
+    line-height: 20px;
+    color: #ddd;
+}
+
+
+
+
+.section_block_container_cinema_system_block p {
+    color: #ec2e65;
+    font-size: 20px;
+    padding-top: 50px;
+}
+
+.section_block_container_panel_main_cinema {
+    color: #FFF;
+    width: 73%;
+    background-color: #2c2c2c;
+    border-radius: 0 10px 10px 0;
+    padding: 20px;
+}
+
+.sort_block_main_cinema {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    border-bottom: 1px solid #FFF;
+    border-top: 1px solid #FFF;
+    padding: 20px;
+}
+
+.sort_block_main_cinema h1 {
+    font-size: 18px;
+    color: #ec2e65;
+}
+
+.sort_block_main_cinema form select {
+    margin: 20px 20px 0 20px;
+    border: 2px solid #ec2e65;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 15px;
+}
+
+.sort_block_main_cinema form button:hover {
+    background-color: #ec2e65;
+    border: 2px solid #FFF;
+}
+
+.sort_block_main_cinema form button {
+    background-color: #FFF;
+    color: #ec2e65;
+    border: 2px solid #ec2e65;
+}
+
+.search_system_sort_block {
+    width: 100%;
+    padding-top: 50px;
+}
+
+.cinema_block_main_information {
+    border-bottom: 1px solid #FFF;
+    padding: 40px 0;
+}
+
+.cinema_block_main_title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title_cinema, .title_rating_cinema {
+    padding-bottom: 40px;
+    display: flex;
+}
+
+.title_cinema svg {
+    fill: #ec2e65;
+}
+
+.title_cinema h1:hover, .title_cinema a:hover {
+    cursor: pointer;
+    color: #ec2e65;
+}
+
+.title_cinema h1 {
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.title_rating_kinopoisk, .title_rating_imdb {
+    background-color: #3c3c3c;
+    border-radius: 5px;
+    padding: 10px;
+    color: #ec2e65;
+}
+
+.title_rating_imdb {
+    margin-left: 15px;
+}
+
+.cinema_block_main_information_system {
+    width: 100%;
+    display: flex;
+}
+
+.main_information_image_block {
+    width: 200px;
+    height: 300px;
+}
+
+.main_information_image_block img {
+    width: 200px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.main_information_description_block {
+    padding-left: 30px;
+}
+
+.main_information_description_block p {
+    padding: 0 0 20px 0;
+    font-size: 15px;
+    line-height: 22px;
+    color: #ddd;
+}
+
+.main_information_description_block h2 {
+    padding: 0 0 20px 0;
+}

@@ -1,0 +1,174 @@
+{% extends 'main/base.html' %}
+{% load humanize %}
+
+{% block title %} {{ cinema.name }} ({{ cinema.release_date }}) {% endblock %}
+
+{% block content %}
+
+    <div class="section_container_block">
+        <div class="section_media_block_system">
+            {% if cinema.img %}
+                <img src="{{ cinema.img.url }}" alt="{{ cinema.img.title }}">
+            {% endif %}
+        </div>
+        <div class="section_all_info_block_system">
+            <h1>{{ cinema.name }} ( {{ cinema.release_date }} )</h1><br>
+            <br><div class="all_info_category_age">
+                <h1>{{ cinema.category }}</h1>
+                <p class="all_info_age">{{ cinema.allowable_age }}+</p>
+            </div><br>
+            <br><h4>{{ cinema.description }}</h4><br>
+            <br>
+            <div class="all_info_watch_cinema">
+                <i class="bi bi-play-fill"></i>
+                <h5>Watch cinema</h5>
+            </div>
+            <br>
+            <br>
+            <h2>About {{ cinema.category }}</h2><br>
+            <br>
+            <div class="all_info_more_info">
+                <h3>Release date</h3>
+                <p>{{ cinema.release_date }}</p>
+            </div><br>
+            <br>
+            <div class="all_info_more_info">
+                <h3>Country</h3>
+                <p>{{ cinema.country }}</p>
+            </div><br>
+            <br>
+            <div class="all_info_more_info">
+            {% if cinema.genres.count > 1 %}
+                <div>
+                    <h3 style="display: inline-block;">Genre </h3>
+                    {% for genre in cinema.genres.all %}
+                        <p style="width: 400px; padding: 4px 0 0 150px; display: inline-block;">
+                            <span> {{ genre.name }}</span>
+                        </p>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <h3>Genre</h3>
+                {% for genre in cinema.genres.all %}
+                    <p>{{ genre }}</p>
+                {% endfor %}
+            {% endif %}
+            </div><br>
+            <br>
+                <div class="all_info_more_info">
+                    <div>
+                        <h3 style="display: inline-block;">Actors </h3>
+                        {% for pr in cinema.actors.all %}
+                            <p style="width: 400px; padding-left: 150px;">
+                                <span>  {{ pr.name }}</span>
+                            </p>
+                        {% endfor %}
+                    </div>
+                </div><br>
+            <br>
+            <div class="all_info_more_info">
+                {% if cinema.directors.count > 1 %}
+                    <div>
+                        <h3 style="display: inline-block;">Producer </h3>
+                        {% for producer in cinema.directors.all %}
+                            <p style="width: 400px; padding: 4px 0 0 150px; display: inline-block;">
+                                <span> {{ producer.name }}</span>
+                            </p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <h3>Producer</h3>
+                    {% for producer in cinema.directors.all %}
+                        <p>{{ producer }}</p>
+                    {% endfor %}
+                {% endif %}
+            </div><br>
+            <br>
+            <div class="all_info_more_info">
+                <h3>Budget</h3>
+                <p>{{ cinema.budget }} $</p>
+            </div><br>
+            <br>
+            <div class="all_info_more_info">
+                <h3>Fees in USA</h3>
+                {% if cinema.fees_usa > 0 %}
+                    <p>{{ cinema.fees_usa }} $</p>
+                {% else %}
+                    <p style="color: #ec2e65">This film is not shown in the USA</p>
+                {% endif %}
+            </div><br>
+            <br>
+            <div class="all_info_more_info">
+                <h3>Fees in the World</h3>
+                <p>{{ cinema.fees_world }} $</p>
+            </div><br>
+            <br>
+            <div class="all_info_more_info">
+                <h3>Allowable age</h3>
+                <p>{{ cinema.allowable_age }}+</p>
+            </div><br>
+            <br>
+            <div class="all_info_more_info">
+                <h3>Time Duration</h3>
+                <p>{{ cinema.time_duration }} min</p>
+            </div><br>
+            <br>
+            <div class="container-block-change-system">
+                <a href="{% url 'delete' cinema.id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'update' cinema.id %}" class="btn btn-info">Update</a>
+            </div>
+
+        </div>
+        <div class="section_rating_info_block_system">
+            <div class="rating_info_more_info">
+                <h1>Rating in Kinopoisk</h1>
+                <p>{{ cinema.rating }}</p>
+            </div><br>
+            {% if cinema.fees_usa > 0 %}
+                <div class="rating_info_more_info">
+                    <br><h1>Rating in IMDB</h1>
+                    <p>{{ cinema.rating_imdb }}</p>
+                </div><br>
+            {% else %}
+                <h3 style="color: #ec2e65">This movie was not rated by IMDB</h3>
+            {% endif %}
+            <br>
+            <div class="actors_info">
+                <h2>Actors: {{ cinema.actors.count }} </h2>
+            </div><br>
+        </div>
+    </div>
+
+    <div class="container-block">
+        <div class="container-block-view-system">
+        <p>Comments ({{ cinema.comments_cinemas.all.count }})</p>
+            <hr>
+            {% for item in cinema.comments_cinemas.all %}
+                {% if item.status == True %}
+                    <div class="container_comments_block">
+                        <div class="comments_block">
+                            <div class="comments_block_main_info">
+                                <h2>{{ item.author }}</h2>
+                                <p>{{ item.create_date }}</p>
+                            </div>
+                            <h1>{{ item.title }}</h1>
+                            <h4 style="width: 600px; line-height: 20px;">{{ item.text }}</h4>
+                        </div>
+                        <hr>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% if user.is_authenticated %}
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.name }}<br>
+                    {{ form.title }}<br>
+                    <br>{{ form.text }}<br>
+                    <br><button class="btn btn-success" type="submit"> Add a comment </button>
+                </form>
+            {% endif %}
+            
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Form by add cinema! {% endblock %}
+
+{% block content %}
+
+    <div class="container-block">
+        <div class="container-block-view-system">
+            <h1>Form by add Cinema</h1>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}<br>
+                {{ form.img }}<br>
+                <br>{{ form.name }}<br>
+                <label> Choose a release date: </label><br>
+                <br>{{ form.release_date }}<br>
+                <label> Choose a genres: </label><br>
+                <br>{{ form.genres }}<br>
+                <br>{{ form.country }}<br>
+                <label> Choose a category: </label>
+                {{ form.category }}<br>
+                <br>{{ form.description }}<br>
+                <br><label> Choose a producer(s): </label><br>
+                <br>{{ form.directors }}<br>
+                <br><label> Choose a actor(s): </label><br>
+                <br>{{ form.actors }}<br>
+                <br>{{ form.budget }}<br>
+                {{ form.fees_usa }}<br>
+                {{ form.fees_world }}<br>
+                {{ form.allowable_age }}<br>
+                {{ form.rating }}<br>
+                {{ form.rating_imdb }}<br>
+                {{ form.time_duration }}<br>
+                <span>{{ error }}</span>
+                <button class="btn btn-success" type="submit"> Add a new </button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
